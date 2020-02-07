@@ -1,0 +1,25 @@
+
+
+type Query{
+  availableCurrencies: [Currency!]!
+  exchangeCurrency(firstCode: String!, secondCode: String!, amount: Float!): Float!
+  conversionStats: ConversionStats!
+}
+
+type ExchangeResult {
+  stats: ConversionStats!
+  convertedAmount: Float!
+  rate: Float!
+}
+
+type Currency {
+  name: String!
+  code: String!
+  symbol: String
+}
+
+type ConversionStats {
+  totalUSDconverted: Float!
+  totalConversions: Int!
+  topDestinationCurrency: String
+}

@@ -1,0 +1,25 @@
+.container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin: 25px 0px;
+  .error {
+    color: #EB5757;
+  }
+  .mainConversion {
+    font-size: 18px;
+    font-weight: 600;
+  }
+  .rateInfo {
+    font-size: 12px;
+    font-weight: 400;
+    margin-top: 10px;
+    color: #bdbdbd;
+  }
+  .mainConversion, .rateInfo {
+    text-align: center;
+  }
+  .loader {
+    height: 25px;
+  }
+}
