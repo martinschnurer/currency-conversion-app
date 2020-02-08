@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from "react";
 import { MdSwapVert } from "react-icons/md";
+import { useDispatch, useSelector } from "react-redux";
 import styles from "./App.module.scss";
 import Select from "./Components/Select/Select";
 import Conversion from "./Components/Conversion";
 import { convert } from "./redux/conversionState/action_convert";
-import { useDispatch, useSelector } from "react-redux";
 import Stats from "./Components/Stats";
 import { fetchCurrencies } from "./redux/currenciesState/action_fetchCurrencies";
 import { AppState } from "./redux/store";
@@ -14,7 +14,7 @@ import { stringIsValidNumber } from "./helpers/stringIsValidNumber";
 const App = () => {
   const dispatch = useDispatch();
   const currenciesState = useSelector((appState: AppState) => appState.currenciesState);
-  const { currencies, meta: { err, isLoading} } = currenciesState;
+  const { currencies } = currenciesState;
 
   const [firstCode, setFirstCode] = useState<string | null>(null);
   const [secondCode, setSecondCode] = useState<string | null>(null);
