@@ -9,8 +9,10 @@ export function useOutsideClickEvent<T extends HTMLElement>(target: React.RefObj
   }, [target, onClickOutside]);
 
   useEffect(() => {
+    document.addEventListener("touchstart", handleClickOutside, true);
     document.addEventListener("click", handleClickOutside, true);
     return () => {
+      document.removeEventListener("touchstart", handleClickOutside, true);
       document.removeEventListener("click", handleClickOutside, true);
     }
   }, [handleClickOutside]);
