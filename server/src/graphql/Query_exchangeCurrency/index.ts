@@ -3,6 +3,7 @@ import { QueryResolvers } from "../../graphqlTypes/graphqlTypes";
 import { updateTotalUSDConverted } from "./updateTotalUSDConverted";
 import { updateTargetCurrencyCount } from "./updateTargetCurrencyCount";
 import { updateSpecificCurrencyCount } from "./updateSpecificCurrencyCount";
+import { fetchRate } from "./fetchRate";
 
 
 export const exchangeCurrency: QueryResolvers["exchangeCurrency"] = async (_, args) => {
@@ -27,4 +28,3 @@ export const exchangeCurrency: QueryResolvers["exchangeCurrency"] = async (_, ar
 
   return rate;
 }
-

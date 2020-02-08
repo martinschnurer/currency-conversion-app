@@ -4,7 +4,7 @@ import { addNewCurrencyToCounter } from "./addNewCurrencyToCounter";
 
 export const updateSpecificCurrencyCount = async (currency: string) => {
   try {
-    const response = await documentClient.update({
+    await documentClient.update({
       TableName: CONFIG.DYNAMODB_TABLE_NAME,
       Key: {
         PK: 'conversionsCounter',
