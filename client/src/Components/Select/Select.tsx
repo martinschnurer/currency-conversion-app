@@ -86,7 +86,7 @@ const Select: React.FC<SelectProps> = ({
           <div className={styles.options}>
             {
               [...options]
-              .filter(option => (option.label.toLocaleLowerCase()).includes(searchInput))
+              .filter(option => (option.label.toLocaleLowerCase()).includes(searchInput.toLowerCase()))
               .map(option => (
                 <div
                   key={option.value}
