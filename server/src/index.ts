@@ -2,13 +2,17 @@ import DOTENV from "dotenv";
 DOTENV.config();
 import "./awsConfigure";
 
+import serverless from "serverless-http";
 import express from "express";
 import cors from "cors";
 import graphqlHTTP from "express-graphql";
 import { buildSchema } from "./buildSchema";
 
 const app = express();
-const port = process.env.PORT; // default port to listen
+
+
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 
 app.use(cors({
   origin: '*',
@@ -16,8 +20,7 @@ app.use(cors({
 
 app.use(
   '/graphql',
-  (req, res) => {
-    
+  (req, res) => {    
     return buildSchema()
       .then(schema => {
         return graphqlHTTP({
@@ -32,15 +35,11 @@ app.use(
   }
 );
 
-// define a route handler for the default home page
-app.get( "/", async (req, res) => {
-    
-    // render the index template
-    res.status(200).end(process.env.FOO);
-});
 
-
-// start the express server
+/*
 app.listen(port, () => {
   console.log(`Server started at http://localhost:${port}` );
 });
+*/
+
+export const handler = serverless(app);
