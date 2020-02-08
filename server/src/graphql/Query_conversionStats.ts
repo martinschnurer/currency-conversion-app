@@ -1,8 +1,8 @@
 import { QueryResolvers, ConversionStats } from "../graphqlTypes/graphqlTypes";
 import { documentClient } from "../awsConfigure";
+import { CONFIG } from "../config";
 
-
-const tableName = process.env.DYNAMODB_TABLE_NAME;
+const tableName = CONFIG.DYNAMODB_TABLE_NAME;
 
 export const conversionStats: QueryResolvers["conversionStats"] = async (): Promise<ConversionStats> => {
 

@@ -1,6 +1,7 @@
 import { QueryResolvers } from "../graphqlTypes/graphqlTypes";
+import { CONFIG } from "../config";
 
-const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=${process.env.CURRENCY_API_KEY}`;
+const currenciesUrl = `https://free.currconv.com/api/v7/currencies?apiKey=${CONFIG.CURRENCY_API_KEY}`;
 
 let cacheEpochTime: number | null = null;
 let cachedCurrencies: any = null;
