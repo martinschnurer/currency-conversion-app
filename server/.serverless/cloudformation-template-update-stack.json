@@ -92,7 +92,7 @@
           "S3Bucket": {
             "Ref": "ServerlessDeploymentBucket"
           },
-          "S3Key": "serverless/conversion-app/dev/1581098744506-2020-02-07T18:05:44.506Z/conversion-app.zip"
+          "S3Key": "serverless/conversion-app/dev/1581169045263-2020-02-08T13:37:25.263Z/conversion-app.zip"
         },
         "FunctionName": "conversion-app-dev-app",
         "Handler": "build/index.handler",
@@ -104,21 +104,26 @@
           ]
         },
         "Runtime": "nodejs10.x",
-        "Timeout": 6
+        "Timeout": 6,
+        "Environment": {
+          "Variables": {
+            "ENV": "production"
+          }
+        }
       },
       "DependsOn": [
         "AppLogGroup",
         "IamRoleLambdaExecution"
       ]
     },
-    "AppLambdaVersionFEHlMUWSp8DlRsujijn5igAtiUdP6WFz0df55ztclw": {
+    "AppLambdaVersionxyF9VIOBphGFUBlXkbDoZ7bwScf3MEz6OLGqgLo": {
       "Type": "AWS::Lambda::Version",
       "DeletionPolicy": "Retain",
       "Properties": {
         "FunctionName": {
           "Ref": "AppLambdaFunction"
         },
-        "CodeSha256": "jIE2sNEhnNEjcomW20Z9B9AabA7L7Y5y6LPJJl/aIGs="
+        "CodeSha256": "a7mtX+t+16uXmnCYTHsOrJ4A3P686GwEISWOQ6n/qAM="
       }
     },
     "ApiGatewayRestApi": {
@@ -333,7 +338,7 @@
         "MethodResponses": []
       }
     },
-    "ApiGatewayDeployment1581098744665": {
+    "ApiGatewayDeployment1581169045444": {
       "Type": "AWS::ApiGateway::Deployment",
       "Properties": {
         "RestApiId": {
@@ -405,7 +410,7 @@
     "AppLambdaFunctionQualifiedArn": {
       "Description": "Current Lambda function version",
       "Value": {
-        "Ref": "AppLambdaVersionFEHlMUWSp8DlRsujijn5igAtiUdP6WFz0df55ztclw"
+        "Ref": "AppLambdaVersionxyF9VIOBphGFUBlXkbDoZ7bwScf3MEz6OLGqgLo"
       }
     },
     "ServiceEndpoint": {
