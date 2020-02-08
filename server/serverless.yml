@@ -8,6 +8,8 @@ provider:
 functions:
   app:
     handler: build/index.handler
+    environment:
+      ENV: production
     events: 
       - http: 
           path: /
